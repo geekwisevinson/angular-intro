@@ -1,6 +1,6 @@
 <div class="characters">
   <h1>A list of characters.</h1>
-  <a *ngIf="type" (click)="renderCharacters(false)">Clear Filter</a>
+  <button *ngIf="type" (click)="clearFilter()">Clear Filter</button>
   <ng-container *ngFor="let character of characters">
     <div class="character" [ngClass]="isHero(character) ? 'hero' : 'villain'">
       <h4>{{ character.name }}</h4>
@@ -9,4 +9,20 @@
       <a routerLink="/character/{{ character.id }}">Learn More</a>
     </div>
   </ng-container>
+  <hr>
+  <div class="add-character">
+    <p>Added Abilities: {{ newCharacter.abilities ? newCharacter.abilities.join(', ') : "" }}</p>
+    <form (ngSubmit)="addNewAbility()">
+        <input type="text" name="abilities" [(ngModel)]="newAbility">
+        <button>Add Ability</button>
+    </form>
+    <form (ngSubmit)="addNewCharacter()">
+      <input type="text" name="name" [(ngModel)]="newCharacter.name">
+      <input type="text" name="description" [(ngModel)]="newCharacter.description">
+      <input type="text" name="image" [(ngModel)]="newCharacter.image">
+      <input type="radio" name="type" value="Hero" [(ngModel)]="newCharacter.type">Hero
+      <input type="radio" name="type" value="Villain" [(ngModel)]="newCharacter.type">Villain
+      <button>Add</button>
+    </form>
+  </div>
 </div>

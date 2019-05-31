@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CHARACTERS } from './mock-characters';
 import { CharacterInterface } from '../interfaces/character-interface';
@@ -12,7 +12,11 @@ import { Character } from '../models/character';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  newCharacter: CharacterInterface = new Character();
+
+  newAbility: string = '';
 
   characters: CharacterInterface[];
 
@@ -28,6 +32,26 @@ export class CharactersComponent implements OnInit {
       this.type = false;
       this.characters = CHARACTERS;
     }
+  }
+
+  clearFilter(): void {
+    this.type = false;
+    this.characters = CHARACTERS;
+    this.router.navigateByUrl('/characters');
+  }
+
+  addNewAbility(): void {
+    const abilities = this.newCharacter.abilities || [];
+    abilities.push(this.newAbility);
+    this.newCharacter.abilities = abilities;
+    this.newAbility = '';
+  }
+
+  addNewCharacter(): void {
+    const id = CHARACTERS.length + 1;
+    this.newCharacter.id = id;
+    this.characters.push(this.newCharacter);
+    this.newCharacter = new Character();
   }
 
   ngOnInit() {
