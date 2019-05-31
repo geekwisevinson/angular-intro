@@ -1,5 +1,6 @@
 <div class="characters">
   <h1>A list of characters.</h1>
+  <a *ngIf="type" (click)="renderCharacters(false)">Clear Filter</a>
   <ng-container *ngFor="let character of characters">
     <div class="character" [ngClass]="isHero(character) ? 'hero' : 'villain'">
       <h4>{{ character.name }}</h4>

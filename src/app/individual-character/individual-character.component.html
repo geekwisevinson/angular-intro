@@ -1,3 +1,11 @@
-<p>
-  individual-character works!
-</p>
+<div>
+  <img src="{{ character.image }}" alt="{{ character.name }}">
+  <div>
+    <h1>{{ character.name }}</h1>
+    <p>{{ character.description }}</p>
+    <p>Type: <a routerLink="/characters" [queryParams]="{ type: character.type }">{{ character.type }}</a></p>
+    <ul>
+      <li *ngFor="let ability of character.abilities">{{ ability | uppercase }}</li>
+    </ul>
+  </div>
+</div>

@@ -15,10 +15,13 @@ export class IndividualCharacterComponent implements OnInit {
 
   character: CharacterInterface;
 
-  ngOnInit() {
+  getCurrentCharacter(): void {
     const id = this.router.snapshot.paramMap.get('id');
     this.character = CHARACTERS.find(character => character.id === +id);
-    console.log(this.character);
+  }
+
+  ngOnInit() {
+    this.getCurrentCharacter();
   }
 
 }
