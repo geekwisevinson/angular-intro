@@ -1,0 +1,14 @@
+.contacts table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contacts table tr th, td {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+.contacts table tr td {
+    padding: 10px 5px;
+}
