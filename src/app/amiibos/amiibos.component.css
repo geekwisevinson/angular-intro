@@ -1,0 +1,28 @@
+.amiibos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 100px;
+}
+
+.amiibos div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fe0016;
+    border: #727272 1px solid;
+    border-radius: 5px;
+}
+
+.amiibos div img {
+    max-width: 100%;
+    margin-bottom: 50px
+}
+
+.amiibos div a {
+    background-color: #727272;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 25px;
+}

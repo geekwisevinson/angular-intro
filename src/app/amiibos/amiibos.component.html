@@ -1,0 +1,7 @@
+<div class="amiibos">
+  <div *ngFor="let amiibo of amiibos">
+    <h3>{{ amiibo.name }}</h3>
+    <img src="{{ amiibo.image }}" alt="{{ amiibo.name }}">
+    <a routerLink="{{ getAmiiboLink(amiibo.head, amiibo.tail) }}">View</a>
+  </div>
+</div>
