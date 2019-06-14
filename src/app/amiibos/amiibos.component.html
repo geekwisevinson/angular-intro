@@ -1,12 +1,16 @@
+<div>
+  <h3>Search:</h3>
+  <input type="text" [(ngModel)]="searchText" (keyup)="setAmiibos(searchText)">
+</div>
 <div class="amiibos">
-  <div *ngFor="let amiibo of amiibos">
+  <div *ngFor="let amiibo of amiibos | search: searchText">
     <h3>{{ amiibo.name }}</h3>
     <img src="{{ amiibo.image }}" alt="{{ amiibo.name }}">
     <a routerLink="{{ getAmiiboLink(amiibo.head, amiibo.tail) }}">View</a>
   </div>
 </div>
 
-<div class="paginator">
+<div class="paginator" *ngIf="!isFiltered">
   <p (click)="setPage(1)" [ngClass]="{disabled: paginator.currentPage === 1}">First</p>
   <p [ngClass]="{disabled: paginator.currentPage === 1}" 
   (click)="setPage(paginator.currentPage - 1)">Previous</p>

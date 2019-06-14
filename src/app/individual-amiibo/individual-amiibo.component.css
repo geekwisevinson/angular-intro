@@ -1,0 +1,13 @@
+.amiibo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amiibo * {
+    flex-basis: 50%
+}
+
+.amiibo img {
+    max-width: 200px;
+}
