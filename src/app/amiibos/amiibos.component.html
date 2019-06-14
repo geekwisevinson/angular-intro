@@ -5,3 +5,16 @@
     <a routerLink="{{ getAmiiboLink(amiibo.head, amiibo.tail) }}">View</a>
   </div>
 </div>
+
+<div class="paginator">
+  <p (click)="setPage(1)" [ngClass]="{disabled: paginator.currentPage === 1}">First</p>
+  <p [ngClass]="{disabled: paginator.currentPage === 1}" 
+  (click)="setPage(paginator.currentPage - 1)">Previous</p>
+  <p *ngFor="let page of paginator.pages" [ngClass]="{active: paginator.currentPage === page}">
+    <span (click)="setPage(page)">{{ page }}</span>
+  </p>
+  <p [ngClass]="{disabled: paginator.currentPage === paginator.pagesCount}"
+  (click)="setPage(paginator.currentPage + 1)">Next</p>
+  <p [ngClass]="{disabled: paginator.currentPage === paginator.pagesCount}"
+  (click)="setPage(paginator.pagesCount)">Last</p>
+</div>

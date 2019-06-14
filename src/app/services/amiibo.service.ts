@@ -24,4 +24,8 @@ export class AmiiboService {
     });
     return amiibosFromApi;
   }
+
+  getAmiibo(id: string): Observable<Object> {
+    return this.api.get(`amiibo/?id=${id}`);
+  }
 }

@@ -26,3 +26,23 @@
     text-decoration: none;
     margin-bottom: 25px;
 }
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.paginator * {
+    margin: 0 30px;
+    color: #fe0016;
+}
+
+.active {
+    border: 1px #000 solid;
+}
+
+.disabled {
+    color: #ccc !important;
+    pointer-events: none;
+}
