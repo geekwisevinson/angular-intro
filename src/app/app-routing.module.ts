@@ -8,6 +8,7 @@ import { IndividualCharacterComponent } from './individual-character/individual-
 import { ContactComponent } from './contact/contact.component';
 import { AmiibosComponent } from './amiibos/amiibos.component';
 import { IndividualAmiiboComponent } from './individual-amiibo/individual-amiibo.component';
+import {SimpleFormComponent} from './views/simple-form/simple-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'character/:id', component: IndividualCharacterComponent },
   { path: 'contacts', component: ContactComponent },
   { path: 'amiibos', component: AmiibosComponent },
-  { path: 'amiibo/:id', component: IndividualAmiiboComponent }
+  { path: 'amiibo/:id', component: IndividualAmiiboComponent },
+  {path: 'simple-form', component: SimpleFormComponent}
 ];
 
 @NgModule({

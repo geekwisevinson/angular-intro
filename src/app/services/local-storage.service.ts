@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import {AmiiboInterface} from '../interfaces/AmiiboInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
+
 
   constructor() { }
 

@@ -54,9 +54,16 @@ export class AmiibosComponent implements OnInit {
     const amiiboSeries = this.route.snapshot.queryParamMap.get('amiiboSeries');
     const gameSeries = this.route.snapshot.queryParamMap.get('gameSeries');
 
-    const filter = {type} || {amiiboSeries} || {gameSeries};
+    const filter = {type, amiiboSeries, gameSeries};
 
-    this.amiiboService.getFilteredAmiibos(filter).subscribe((response: any) => console.log(response));
+    for (const filterKey in filter) {
+      if (!filter[filterKey]) {
+        delete filter[filterKey];
+      }
+    }
+
+    console.log('filter', filter);
+    this.amiibos = this.amiiboService.getFilteredAmiibos(filter)
   }
 
   ngOnInit() {

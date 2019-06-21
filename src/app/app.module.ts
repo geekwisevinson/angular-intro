@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { PhonePipe } from './pipes/phone.pipe';
 import { AmiibosComponent } from './amiibos/amiibos.component';
 import { IndividualAmiiboComponent } from './individual-amiibo/individual-amiibo.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { SimpleFormComponent } from './views/simple-form/simple-form.component';
+import { DesignedComponent } from './shared/designed/designed.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,16 @@ import { SearchPipe } from './pipes/search.pipe';
     PhonePipe,
     AmiibosComponent,
     IndividualAmiiboComponent,
-    SearchPipe
+    SearchPipe,
+    SimpleFormComponent,
+    DesignedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

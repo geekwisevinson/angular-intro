@@ -17,7 +17,9 @@ export class IndividualAmiiboComponent implements OnInit {
 
   setAmiibo() {
     const id: string = this.router.snapshot.paramMap.get('id');
-    return this.amiiboService.getAmiibo(id).subscribe((response: any) => this.amiibo = response.amiibo);
+
+    this.amiibo = this.amiiboService.getAmiibo(id);
+    // return this.amiiboService.getAmiibo(id).subscribe((response: any) => this.amiibo = response.amiibo);
   }
 
   ngOnInit() {
